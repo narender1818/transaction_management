@@ -5,5 +5,5 @@ Through this application you can store multiple events into database with the he
 
 ### The Why
 
-How to get statment of data from the history?
-How to trace the progress of somthing that arrive in current state?
+- How to get statment of data from the history?
+- How to trace the progress of somthing that arrive in current state?
