@@ -5,8 +5,7 @@ import java.util.Date
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.PersistentActor
 
-object PersistentActors extends App {
-  
+object RetrieveOperation {
   case class Invoice(recipient: String, data: Date, amount: Int)
   case class InvoiceRecords(id: Int, recipient: String, data: Date, amount: Int)
 
@@ -18,7 +17,7 @@ object PersistentActors extends App {
 
     override def receiveCommand: Receive = {
       case Invoice(recipient, data, amount) => {
-       
+
         log.info(s" Receive invoice for amount :$amount")
         val events = InvoiceRecords(latestInvoiceId, recipient, data, amount)
         persist(events) { e =>
@@ -39,8 +38,8 @@ object PersistentActors extends App {
   }
   val system = ActorSystem("PersistentActors")
   val accountant = system.actorOf(Props[Accountant], "Accountant")
-//  for (i <- 1 to 10) {
-//    accountant ! Invoice("sdds", new Date(), 1 * 100)
+  //  for (i <- 1 to 10) {
+  //    accountant ! Invoice("sdds", new Date(), 1 * 100)
 
- // }
+  // }
 }
