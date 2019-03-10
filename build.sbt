@@ -1,4 +1,4 @@
-name := "udemy-akka-persistence-starter"
+name := "transaction_management"
 
 version := "0.1"
 
